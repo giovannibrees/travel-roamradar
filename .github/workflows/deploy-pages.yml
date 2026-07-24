@@ -5,12 +5,14 @@ name: Deploy website to GitHub Pages
 # (or your custom domain). One-time setup: repo Settings -> Pages -> Source:
 # "GitHub Actions". The Cloudflare Worker app deploys separately and is unaffected.
 
+# Prerequisite (one-time, human-only): repo Settings -> Pages -> Source:
+# "GitHub Actions". The Actions token cannot create the Pages site itself, so
+# this must be enabled once by hand; after that every run below deploys cleanly.
 on:
   push:
     branches: [main]
     paths:
       - "website/**"
-      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -31,8 +33,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: website

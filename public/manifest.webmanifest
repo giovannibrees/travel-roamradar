@@ -1,6 +1,6 @@
 {
-  "name": "Travel",
-  "short_name": "Travel",
+  "name": "RoamRadar",
+  "short_name": "RoamRadar",
   "description": "Every trip - its flights, stays and plans - on one living timeline.",
   "start_url": "/app",
   "scope": "/",

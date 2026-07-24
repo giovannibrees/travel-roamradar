@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Travel</title>
+<title>RoamRadar</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#ECE7DC">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Travel">
+<meta name="apple-mobile-web-app-title" content="RoamRadar">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -354,7 +354,7 @@
 <div class="wrap">
   <header class="topbar">
     <div class="brand">
-      <h1>Travel</h1>
+      <h1>RoamRadar</h1>
       <p>Every trip - its flights, stays and rides - on one living timeline.</p>
     </div>
     <div class="ctl">
@@ -601,7 +601,7 @@
     var dt=function(d){return d.replace(/-/g,"");};
     var dtEnd=function(d){var x=new Date(d+"T00:00:00Z");x.setUTCDate(x.getUTCDate()+1);return x.toISOString().slice(0,10).replace(/-/g,"");};
     var desc=(t.segments||[]).map(function(s){return (s.type||"")+": "+(s.name||"");}).join("\\n");
-    return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Travel//EN","BEGIN:VEVENT","UID:"+t.id+"@travel",
+    return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//RoamRadar//EN","BEGIN:VEVENT","UID:"+t.id+"@travel",
       "DTSTART;VALUE=DATE:"+dt(t.start),"DTEND;VALUE=DATE:"+dtEnd(t.end),
       "SUMMARY:Trip: "+((t.label||codeify(t.to)||"Travel").replace(/[,;]/g," ")),"DESCRIPTION:"+desc,"END:VEVENT","END:VCALENDAR"].join("\r\n");
   }

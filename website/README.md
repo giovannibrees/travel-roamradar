@@ -1,4 +1,4 @@
-# Travel! - marketing website
+# RoamRadar - marketing website
 
 A single self-contained `index.html` landing page for the app. No build step,
 no framework, no runtime - just open it or drop it on any static host.

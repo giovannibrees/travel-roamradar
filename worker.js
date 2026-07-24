@@ -1,4 +1,4 @@
-// Travel sync worker (Cloudflare)
+// RoamRadar sync worker (Cloudflare)
 // One hub. Your app is the only UI. Everything else is headless:
 //   - Google Calendar    reads events you already drop in (Booking, Airbnb...) as trip segments, writes one clean event per trip
 //   - Gmail + Claude      parses confirmation emails (drivers, transfers) into segments
@@ -1066,7 +1066,7 @@ function buildIcs(store) {
       desc ? "DESCRIPTION:" + icsEscape(desc) : "",
       "END:VEVENT"].filter(Boolean).join("\r\n");
   }).join("\r\n");
-  return "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//travel-hub//EN\r\nCALSCALE:GREGORIAN\r\nX-WR-CALNAME:Travel\r\n" + ev + "\r\nEND:VCALENDAR\r\n";
+  return "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//RoamRadar//EN\r\nCALSCALE:GREGORIAN\r\nX-WR-CALNAME:RoamRadar\r\n" + ev + "\r\nEND:VCALENDAR\r\n";
 }
 
 async function loadStore(env) {

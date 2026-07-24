@@ -1,4 +1,4 @@
-# ✈️ Travel — your own personal travel hub
+# ✈️ RoamRadar - your own personal travel hub
 
 <p align="center">
   <img src="docs/screenshots/travel-demo.gif" alt="Walkthrough: trip card with photo, year calendar, and been-there world map" width="300">

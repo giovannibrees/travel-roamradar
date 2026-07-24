@@ -1,0 +1,47 @@
+name = "travel-roamradar"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Serve the front end from the SAME Worker, so one URL is both the app and the
+# API. Static files in public/ (index.html, manifest, sw.js, icons) are served
+# first; anything that is not a static file - /trips, /sync, OPTIONS, the cron -
+# falls through to worker.js.
+[assets]
+directory = "./public"
+
+# Two triggers, one budget-friendly split:
+#  - 18:00 UTC daily: the FULL sync - calendar, email, calendar write. Manual
+#    "Sync" in the app runs this same job.
+#  - hourly at :30: an email-only drain. It files freshly forwarded bookings
+#    within the hour and finishes any inbox backlog on its own (no need to
+#    keep the app open). Costs ~4 subrequests and zero Claude tokens when
+#    there is nothing new.
+[triggers]
+crons = ["0 18 * * *", "30 * * * *"]
+
+# The "Deploy to Cloudflare" button AUTO-CREATES this KV namespace in the
+# deployer's own account and rewrites the id below — nothing to do.
+# Deploying by hand instead? Run:  wrangler kv namespace create TRIPS
+# and paste the returned id here.
+[[kv_namespaces]]
+binding = "TRIPS"
+id = "3401bc1218c04ba68201a41ecac772ab"
+
+# No secret is stored in this file. Everything is optional and connects IN THE
+# APP (Settings) — no dashboard needed. Or set them as Worker secrets instead:
+# wrangler secret put NAME
+#   ANTHROPIC_API_KEY     (optional — Gmail -> trip parsing)
+#   GOOGLE_CLIENT_ID      (optional — Google Calendar; or connect in-app:
+#   GOOGLE_CLIENT_SECRET   Settings -> Connect Google Calendar, no secrets needed)
+#   GOOGLE_REFRESH_TOKEN  (optional — minted for you by the in-app Connect flow)
+#   GOOGLE_CALENDAR_ID    (optional, defaults to "primary")
+#   CALENDLY_TOKEN        (optional)
+
+# Anonymous install count — OFF by blank default. See README, "Anonymous
+# install count": the ONLY thing this worker ever sends, once, on first-time
+# setup, is a random id — never a trip, a key, an email, or anything else.
+# Leave blank to opt this instance out completely (nothing else depends on
+# it). To turn it on, deploy counter/ (a separate tiny Worker) and paste its
+# URL below.
+[vars]
+TELEMETRY_URL = ""

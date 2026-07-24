@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /t/
+Disallow: /trips
+Disallow: /sync
+Disallow: /cal.ics
+Disallow: /google/
+Disallow: /gmail/
+Disallow: /plans/
+Disallow: /segments/
+Disallow: /ics/
+Disallow: /backups
+Disallow: /settings
+Disallow: /auth/
+
+Sitemap: https://travel.giovannibrees.com/sitemap.xml

@@ -1,0 +1,24 @@
+# For LOCAL DEVELOPMENT only: copy this file to ".dev.vars" in the repo ROOT
+# (`cp docs/dev.vars.example .dev.vars`) for `wrangler dev`.
+# For production, set the SAME names as Worker secrets:  wrangler secret put NAME
+# NEVER commit a file with real values — .dev.vars is gitignored.
+#
+# Why does this live in docs/ and not the root? The "Deploy to Cloudflare"
+# button turns every line of a root .dev.vars.example into a REQUIRED form
+# field that blocks the deploy when left blank — and every one of these is
+# optional (each connects in-app after deploy). Keep it out of the root.
+#
+# Everything here is OPTIONAL — the app works by hand with none of it, and each
+# of these can be pasted in the app instead (Settings).
+
+# Google Calendar sync + Gmail trip parsing
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
+GOOGLE_REFRESH_TOKEN=""
+GOOGLE_CALENDAR_ID="primary"
+
+# Gmail confirmation-email parsing into trip segments (uses Claude)
+ANTHROPIC_API_KEY=""
+
+# Calendly (optional ingestion source)
+CALENDLY_TOKEN=""

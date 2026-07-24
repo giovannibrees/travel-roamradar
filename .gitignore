@@ -1,0 +1,28 @@
+# Secrets - NEVER commit these
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.local
+# ...but DO ship the example (it holds no real values)
+!.dev.vars.example
+
+# Cloudflare / Wrangler
+.wrangler/
+.mf/
+dist/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# The counter (maintainer-only) is deployed from a local copy of its example config
+counter/wrangler.toml

@@ -1,0 +1,18 @@
+# This is a SEPARATE, tiny Worker - the maintainer's own install counter.
+# Self-hosters never deploy this. It answers one question ("how many
+# instances exist?") and stores nothing else. See ../README.md, section
+# "Anonymous install count", for exactly what it does and does not receive.
+#
+# Named *.example.toml on purpose so no deploy tooling ever mistakes it for
+# a deployable config. To use it:  cp wrangler.example.toml wrangler.toml
+# (the copy is gitignored), then fill in the KV id below.
+name = "travelapp-counter"
+main = "counter-worker.js"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "COUNTER"
+id = "REPLACE_WITH_YOUR_OWN_KV_ID"   # wrangler kv namespace create COUNTER
+
+# After deploying:  wrangler secret put READ_KEY   (any password you choose -
+# gates GET /count so only you can read the total)

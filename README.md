@@ -1,5 +1,12 @@
 # ✈️ RoamRadar - your own personal travel hub
 
+> **A free, open-source, self-hosted personal travel app.** Keep every flight, hotel, ride, countdown, wishlist and past trip on one living timeline. Bookings can flow in automatically from Google Calendar and Gmail. Runs as a single Cloudflare Worker on your own account. Built with AI agents by [Giovanni Brees](https://www.giovannibrees.com).
+
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-1E40FF.svg)](LICENSE)
+![Self-hosted](https://img.shields.io/badge/self--hosted-yes-1B8A57.svg)
+![Built with AI agents](https://img.shields.io/badge/built%20with-AI%20agents-FF5A35.svg)
+![Cloudflare Workers](https://img.shields.io/badge/runs%20on-Cloudflare%20Workers-F38020.svg)
+
 <p align="center">
   <img src="docs/screenshots/travel-demo.gif" alt="Walkthrough: trip card with photo, year calendar, and been-there world map" width="300">
 </p>
@@ -214,8 +221,43 @@ instance participates too; blank the line, or delete the one `ctx.waitUntil
 (pingInstallCount(env))` call in `worker.js`, to opt out completely — nothing
 else in the app depends on it either way.
 
+## Frequently asked questions
+
+**Is RoamRadar free?**
+Yes. It is open-source and self-hosted - you run your own copy on your own
+Cloudflare account, which is free for personal use.
+
+**Where is my travel data stored?**
+In your own Cloudflare KV, behind your own password. Nothing is sent to a shared
+server, and the repo author cannot see your trips.
+
+**Do I have to connect my email or calendar?**
+No. RoamRadar is fully usable by hand. Connecting Google Calendar and Gmail is
+optional and only makes trips fill themselves in from your existing bookings.
+
+**What is RoamRadar built with?**
+A single Cloudflare Worker serving a vanilla-JavaScript front end, with one KV
+namespace for storage. No framework, no build step.
+
+**Who made RoamRadar?**
+[Giovanni Brees](https://www.giovannibrees.com), a founder and AI-first
+entrepreneur. His AI development agent built the app from scratch, with Claude
+Fable and Codex reviewing the code and Claude handling the visual design.
+
+## Author
+
+Created by **[Giovanni Brees](https://www.giovannibrees.com)** - a founder and
+AI-first entrepreneur building and writing at the edge of AI agents and
+automation. RoamRadar is one of his experiments in shipping complete, useful
+software with AI agents.
+
+- Website: https://www.giovannibrees.com
+- LinkedIn: https://www.linkedin.com/in/giovannibrees/
+- Podcast, *The Zero-Employee Company*: https://open.spotify.com/show/033TuF4FmEurDDvBZlOAYr
+
 ## License
 
 [PolyForm Noncommercial 1.0.0](LICENSE) — free to run, modify, and self-host for
 any **noncommercial** purpose. You may not sell it or use it commercially.
+
 </content>
